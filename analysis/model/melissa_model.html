@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2018-01-31" />
+<meta name="date" content="2018-02-12" />
 
 <title>Melissa model</title>
 
@@ -213,7 +213,7 @@ div.tocify {
 <p class="author-name">Andreas C. Kapourani<span class="affil-mark">1*</span> and Guido Sanguinetti<span class="affil-mark">1**</span></p>
 <p class="author-affiliation"><span class="affil-mark">1</span>School of Informatics, University of Edinburgh, UK</p>
 <p class="author-email"><span class="affil-mark">*</span><a href="mailto:c.a.kapourani or kapouranis.andreas@gmail.com">c.a.kapourani or kapouranis.andreas@gmail.com</a><br><span class="affil-mark">**</span><a href="mailto:G.Sanguinetti@ed.ac.uk">G.Sanguinetti@ed.ac.uk</a></p>
-<h4 class="date"><em>31 January 2018</em></h4>
+<h4 class="date"><em>12 February 2018</em></h4>
 
 </div>
 
@@ -227,9 +227,10 @@ p(\mathbf{X}) = \int p(\mathbf{X}, \mathbf{Z}) d\mathbf{Z}
 \]</span> For many models, this evidence integral is unavailable in closed form or requires exponential time to compute. The evidence is what we need to compute the conditional density from the joint; this is why inference in such models is hard.</p>
 <div id="the-evidence-lower-bound-elbo" class="section level2">
 <h2><span class="header-section-number">1.1</span> The evidence lower bound (ELBO)</h2>
-<p>In variational inference, we specific a family <span class="math inline">\(\mathcal{Q}\)</span> of densities over the latent variables. Each <span class="math inline">\(q(\mathbf{Z}) \in \mathcal{Q}\)</span> is a <strong>candidate approximation</strong> to the exact posterior density. Our goal is to find the best candidate, i.e. the one that <strong>minimizes the Kulback-Leibler (<span class="math inline">\(\mathcal{KL}\)</span>) divergence</strong> to the exact posterior. Hence, inference now amounts to solving the following optimization problem <span class="math display">\[
+<p>In variational inference, we specific a family <span class="math inline">\(\mathcal{Q}\)</span> of densities over the latent variables. Each <span class="math inline">\(q(\mathbf{Z}) \in \mathcal{Q}\)</span> is a <strong>candidate approximation</strong> to the exact posterior density. Our goal is to find the best candidate, i.e. the one that <strong>minimizes the Kulback-Leibler (<span class="math inline">\(\mathcal{KL}\)</span>) divergence</strong> to the exact posterior. Hence, inference now amounts to solving the following optimization problem</p>
+<p><span class="math display">\[
 \begin{aligned}
-q^{*}(Z) &amp; = \underset{q(\mathbf{Z}) \in \mathcal{Q}} {\mathrm{argmax}}\; \mathcal{KL}(q(\mathbf{Z})\; || \; p(\mathbf{Z} | \mathbf{X}))
+q^{*}(Z) &amp; = \underset{q(\mathbf{Z}) \in \mathcal{Q}} {\mathrm{argmin}}\; \mathcal{KL}(q(\mathbf{Z})\; || \; p(\mathbf{Z} | \mathbf{X}))
 \end{aligned}
 \]</span> Note that the complexity of the family <span class="math inline">\(\mathcal{Q}\)</span> determines the complexity of this optimization. Let us observe what is the <span class="math inline">\(\mathcal{KL}\)</span> divergence between these two distributions <span class="math display">\[
 \begin{aligned}
